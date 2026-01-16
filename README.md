@@ -1,47 +1,80 @@
-📌 QR Code Generator (Python – Notebook Version)
+# QR Code Generator
 
-📝 Description
+A simple Python-based QR code generator that creates customizable QR codes from URLs or text input. Built for use in Jupyter Notebooks with inline display capabilities.
 
-This project is a Python-based QR Code Generator built inside a Jupyter Notebook (VS Code or Google Colab). It takes user input, generates a QR code, displays it in the notebook, and saves it locally as a PNG file. The project is simple, interactive, and ideal for learning basic Python concepts.
+## Features
 
-🎯 What This Project Does
+- Generate QR codes from any URL or text
+- Customizable appearance (colors, size, border)
+- Display QR codes directly in Jupyter Notebook
+- Save QR codes as PNG files
+- High error correction level for better scanning reliability
 
-Accepts URL or text input
+## Requirements
 
-Generates a QR code using Python
+- Python 3.x
+- qrcode library with PIL support
+- Pillow (PIL)
+- IPython (for Jupyter Notebook display)
 
-Displays the QR image inside the notebook
+## Installation
 
-Saves the QR code as a .png file
+Install the required dependencies using pip:
 
-Allows customization (color, size, border)
+```bash
+pip install qrcode[pil] pillow
+```
 
-📚 Concepts Used / Learned
+## Usage
 
-Functions in Python
+### Basic Usage
 
-User input handling
+1. Open the Jupyter Notebook `QR_Code_Generator.ipynb`
+2. Run all cells
+3. When prompted, enter the URL or text you want to encode
+4. The QR code will be displayed in the notebook and saved as `qrcode.png`
 
-External libraries (qrcode, Pillow, IPython.display)
+### Function Parameters
 
-Image processing
+The `generate_qr()` function accepts the following parameters:
 
-File handling
+- `url` (str): The URL or text to encode in the QR code
+- `box_size` (int, default=10): Size of each box in the QR code grid
+- `border` (int, default=4): Width of the border (minimum is 4)
+- `fill_color` (str, default="black"): Color of the QR code pattern
+- `back_color` (str, default="white"): Background color
+- `filename` (str, default="qrcode.png"): Output filename for the saved image
 
-In-memory data handling (BytesIO)
+### Example
 
-Notebook operations (VS Code / Jupyter)
+```python
+from QR_Code_Generator import generate_qr
 
-Basic string manipulation
+# Generate a basic QR code
+generate_qr("https://example.com")
 
-🛠 Technologies Used
+# Generate a customized QR code
+generate_qr(
+    url="https://example.com",
+    box_size=15,
+    border=2,
+    fill_color="darkblue",
+    back_color="lightgray",
+    filename="custom_qr.png"
+)
+```
 
-Python 3
+## Output
 
-Jupyter Notebook / VS Code Notebook
+The generated QR code will:
+- Be displayed inline in the Jupyter Notebook
+- Be saved as a PNG file in the current directory
+- Use high error correction (ERROR_CORRECT_H) for robust scanning
 
-qrcode
+## License
 
-Pillow (PIL)
+This project is open source and available for personal and commercial use.
 
-IPython.display
+## Contributing
+
+Feel free to submit issues or pull requests for improvements and bug fixes.
